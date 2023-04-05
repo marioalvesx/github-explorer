@@ -1,6 +1,7 @@
 import { RepositoryItem } from "./RepositoryItem";
 
-import '../styles/repositories.scss'
+import '../styles/repositories.scss';
+import githubLogo from '../assets/github-mark-white.png';
 import { useEffect, useState } from "react";
 
 interface Repository {
@@ -21,6 +22,7 @@ export function RepositoryList() {
   return (
     <section className="repository-list">
       <h1>Repository List</h1>
+      <img src={githubLogo} alt="" />
 
       <ul>
         {repositories.map(repository => {
