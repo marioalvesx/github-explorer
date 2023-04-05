@@ -1,7 +1,26 @@
 section.repository-list {
   margin: 40px;
 
+  .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5rem;   
+    .app-logo {
+      width: 10rem;
+      height: 10rem; 
+    } 
+  }
+
+  .search-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5rem;   
+  }
+
   h1 {
+    font-family: 'JetBrains Mono', monospace;
     margin-bottom: 16px;
   }
 
@@ -15,7 +34,7 @@ section.repository-list {
 
       p {
         font-size: 14px;
-        color: #444;
+        color: #ffffff;
         margin-top: 8px;
       }
 
