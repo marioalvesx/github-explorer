@@ -31,6 +31,9 @@ export function RepositoryList() {
         <input type="text" />
       </div>
 
+      <hr />
+      
+
       <ul>
         {repositories.map(repository => {
           return <RepositoryItem key={repository.name} repository={repository} />
