@@ -1,3 +1,5 @@
+@import './global.scss';
+
 section.repository-list {
   margin: 40px;
 
@@ -5,7 +7,7 @@ section.repository-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 5rem;   
+    padding-bottom: 3rem;   
     .app-logo {
       width: 10rem;
       height: 10rem; 
@@ -13,36 +15,46 @@ section.repository-list {
   }
 
   .search-button{
+    font-family: 'JetBrains Mono', monospace;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 5rem;   
+    input {
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+      border-radius: 6px;
+      height: 2rem;
+      width: 12rem;
+      padding: 5px 12px;
+      background-color: #010409;
+    }
   }
 
-  h1 {
-    font-family: 'JetBrains Mono', monospace;
-    margin-bottom: 16px;
-  }
+  .repositories-wrapper {
+    h2 {
+      padding: 3rem 0rem 3rem 0rem;
+    }
+    ul {
+      list-style: none;
 
-  ul {
-    list-style: none;
+      li {
+        & + li {
+          margin-top: 25px;
+        }
 
-    li {
-      & + li {
-        margin-top: 20px;
-      }
+        p {
+          font-size: 14px;
+          color: #ffffff;
+          margin-top: 8px;
+        }
 
-      p {
-        font-size: 14px;
-        color: #ffffff;
-        margin-top: 8px;
-      }
-
-      a {
-        display: inline-block;
-        margin-top: 16px;
-        text-decoration: none;
-        color: #8257e6;
+        a {
+          display: inline-block;
+          margin-top: 16px;
+          text-decoration: none;
+          color: #8257e6;
+        }
       }
     }
   }

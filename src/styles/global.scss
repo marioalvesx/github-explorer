@@ -4,8 +4,20 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 16px;
+}
+
 body {
   font: 16px "Helvetica Neue", Arial, sans-serif;
   color: #ffffff;
   background-color: #161b22;
+}
+
+// Variables
+@media (color-scheme: dark) {
+  input {
+    background-color: #010409;
+  }
 }

@@ -28,18 +28,20 @@ export function RepositoryList() {
 
       <div className="search-button">
         <label htmlFor="">Search user</label>
-        <input type="text" />
+        <input title="user" type="text" placeholder="Find a user..."></input>
       </div>
 
       <hr />
       
-
-      <ul>
-        {repositories.map(repository => {
-          return <RepositoryItem key={repository.name} repository={repository} />
-        })}
-        
-      </ul>
+      <div className="repositories-wrapper">
+        <h2>Repository list from user __ :</h2>
+        <ul>
+          {repositories.map(repository => {
+            return <RepositoryItem key={repository.name} repository={repository} />
+          })}
+          
+        </ul>
+      </div>
     </section>
   )
 }
