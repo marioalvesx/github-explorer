@@ -10,8 +10,14 @@ interface Repository {
   html_url: string;
 }
 
+interface User {
+  user: string;
+  repositoryNumber: number;
+}
+
 export function RepositoryList() {
   const [repositories, setRepositories] = useState<Repository[]>([]);
+  const [userSearch, setUserSearch] = useState<User>();
 
   useEffect(() => {
     fetch('https://api.github.com/users/marioalvesx/repos')
