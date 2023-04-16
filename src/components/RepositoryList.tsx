@@ -18,6 +18,15 @@ interface User {
 export function RepositoryList() {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [userSearch, setUserSearch] = useState<User>();
+  const [user, setUser] = useState();
+
+  function handleUserChange() {
+    
+  }
+
+  // function handleSearch(e) {
+
+  // }
 
   useEffect(() => {
     fetch('https://api.github.com/users/marioalvesx/repos')
@@ -34,7 +43,8 @@ export function RepositoryList() {
 
       <div className="search-button">
         <label htmlFor="">Search user</label>
-        <input title="user" type="text" placeholder="Find a user..."></input>
+        <input title="user" type="text" name="user" onChange={handleUserChange} placeholder="Find a user..."></input>
+        <button onClick={handleSearch}></button>
       </div>
 
       <hr />
