@@ -1,10 +1,10 @@
-import { RepositoryList } from './components/RepositoryList';
-import './styles/global.scss';
+import Home from "./routes/Home";
+import "./styles/global.scss";
 
 export function App() {
   return (
     <>
-      <RepositoryList />
+      <Home />
     </>
-  )
+  );
 }
