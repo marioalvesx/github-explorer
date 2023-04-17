@@ -1,0 +1,30 @@
+@import "./global.scss";
+
+.search-input-wrapper {
+  margin-top: 40px;
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  .user-name {
+    flex: 1 1 0%;
+    height: 70px;
+    padding: 0px 24px;
+    border-radius: 8px 0px 0px 8px;
+    border: 1px solid rgb(240, 240, 245);
+  }
+
+  .user-button {
+    width: 210px;
+    height: 70px;
+    background: rgb(4, 211, 97);
+    border: 0px;
+    border-radius: 0px 8px 8px 0px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: background-color 0.2s ease 0s;
+    cursor: pointer;
+  }
+  .user-button:hover {
+    background: rgb(3, 168, 77);
+  }
+}

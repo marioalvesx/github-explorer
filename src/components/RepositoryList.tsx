@@ -1,7 +1,8 @@
+import { Outlet } from "react-router-dom";
 import { RepositoryItem } from "./RepositoryItem";
 
-import '../styles/repositories.scss';
-import githubLogo from '../assets/githubwhite.png';
+import "../styles/repositories.scss";
+import githubLogo from "../assets/githubwhite.png";
 import { useEffect, useState } from "react";
 
 interface Repository {
@@ -10,54 +11,49 @@ interface Repository {
   html_url: string;
 }
 
-interface User {
-  user: string;
-  repositoryNumber: number;
-}
-
 export function RepositoryList() {
   const [repositories, setRepositories] = useState<Repository[]>([]);
-  const [userSearch, setUserSearch] = useState<User>();
-  const [user, setUser] = useState();
 
-  function handleUserChange() {
-    
-  }
-
-  // function handleSearch(e) {
-
-  // }
+  function handleUserChange() {}
 
   useEffect(() => {
-    fetch('https://api.github.com/users/marioalvesx/repos')
-      .then(response => response.json())
-      .then(data => setRepositories(data))
-  }, [])
+    fetch("https://api.github.com/users/marioalvesx/repos")
+      .then((response) => response.json())
+      .then((data) => setRepositories(data));
+  }, []);
 
   return (
     <section className="repository-list">
-      <div className="header">      
+      <div className="header">
         <h1>Github Explorer</h1>
+        <Outlet />
         <img className="app-logo" src={githubLogo} alt="logo" />
       </div>
 
       <div className="search-button">
         <label htmlFor="">Search user</label>
-        <input title="user" type="text" name="user" onChange={handleUserChange} placeholder="Find a user..."></input>
-        <button onClick={handleSearch}></button>
+        <input
+          title="user"
+          type="text"
+          name="user"
+          onChange={handleUserChange}
+          placeholder="Find a user..."
+        ></input>
+        <button></button>
       </div>
 
       <hr />
-      
+
       <div className="repositories-wrapper">
         <h2>Repository list from user __ :</h2>
         <ul>
-          {repositories.map(repository => {
-            return <RepositoryItem key={repository.name} repository={repository} />
+          {repositories.map((repository) => {
+            return (
+              <RepositoryItem key={repository.name} repository={repository} />
+            );
           })}
-          
         </ul>
       </div>
     </section>
-  )
+  );
 }
