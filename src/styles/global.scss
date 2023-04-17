@@ -4,20 +4,41 @@
   box-sizing: border-box;
 }
 
-h1 {
-  font-family: 'JetBrains Mono', monospace;
-  margin-bottom: 16px;
+#root,
+body,
+html {
+  height: 100%;
+}
+
+#root {
+  max-width: 960px;
+  width: 100%;
+  margin: 0px auto;
 }
 
 body {
   font: 16px "Helvetica Neue", Arial, sans-serif;
   color: #ffffff;
   background-color: #161b22;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 70%;
+  background-position-x: 95%;
+  --webkit-font-smoothing: antialiased;
+  section {
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-// Variables
-@media (color-scheme: dark) {
-  input {
-    background-color: #010409;
-  }
+.title {
+  font-family: "JetBrains Mono", monospace;
+  margin-bottom: 16px;
+  font-size: 48px;
+  max-width: 450px;
+  line-height: 56px;
+  margin-top: 80px;
 }
