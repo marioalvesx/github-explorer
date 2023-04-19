@@ -9,6 +9,11 @@ interface Search {
 const UserSearch = ({ loadUser }: Search) => {
   const [userName, setUserName] = useState("");
 
+  const handleKeyDown = (e) => {
+    if (e.key == "Enter") {
+    }
+  };
+
   return (
     <form className="search-input-wrapper">
       <input
@@ -16,6 +21,7 @@ const UserSearch = ({ loadUser }: Search) => {
         type="text"
         placeholder="Find an user..."
         onChange={(e) => setUserName(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <button
         type="submit"
