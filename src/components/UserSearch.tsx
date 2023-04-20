@@ -1,5 +1,5 @@
 import "../styles/userSearch.scss";
-import { useState } from "react";
+import { useState, KeyboardEvent } from "react";
 import { BsSearch } from "react-icons/bs";
 
 interface Search {
@@ -9,8 +9,9 @@ interface Search {
 const UserSearch = ({ loadUser }: Search) => {
   const [userName, setUserName] = useState("");
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key == "Enter") {
+      loadUser(userName);
     }
   };
 
