@@ -9,7 +9,7 @@ interface RepositoryItemProps {
 export function RepositoryItem(props: RepositoryItemProps) {
   return (
     <li>
-      <strong>{props.repository.name ?? "Default"}</strong>
+      <h1>{props.repository.name ?? "Default"}</h1>
       <p>{props.repository.description}</p>
 
       <a href={props.repository.html_url}>Access repository</a>
