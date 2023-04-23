@@ -1,9 +1,10 @@
-import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { BsSearch } from "react-icons/bs";
 import { RepositoryItem } from "./RepositoryItem";
 
 import "../styles/repositories.scss";
-import githubLogo from "../assets/githubwhite.png";
-import { useEffect, useState } from "react";
+import githubBackground from "../assets/background.png";
+import logo from "../assets/logo.svg";
 
 interface Repository {
   name: string;
@@ -13,45 +14,58 @@ interface Repository {
 
 export function RepositoryList() {
   const [repositories, setRepositories] = useState<Repository[]>([]);
-
-  function handleUserChange() {}
+  const [username, setUsername] = useState("");
+  const [url, setUrl] = useState("");
+  const [description, setDescription] = useState("Waiting search");
 
   useEffect(() => {
-    fetch("https://api.github.com/users/marioalvesx/repos")
+    fetch(url)
       .then((response) => response.json())
-      .then((data) => setRepositories(data));
-  }, []);
+      .then((data) => {
+        setDescription(username ? "User not found" : "Waiting search");
+        setRepositories(data);
+      });
+  }, [url]);
 
   return (
-    <section className="repository-list">
+    <section
+      className="repository-list"
+      style={{ backgroundImage: `url(${githubBackground})` }}
+    >
       <div className="header">
-        <h1>Github Explorer</h1>
-        <Outlet />
-        <img className="app-logo" src={githubLogo} alt="logo" />
+        <img src={logo} alt="logo" />
       </div>
 
-      <div className="search-button">
-        <label htmlFor="">Search user</label>
+      <h1 className="title">Explore Github Users</h1>
+      <div className="search-input-wrapper">
         <input
-          title="user"
+          className="user-name"
           type="text"
           name="user"
-          onChange={handleUserChange}
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
           placeholder="Find a user..."
         ></input>
-        <button></button>
+        <button
+          type="submit"
+          onClick={() => {
+            setUrl("https://api.github.com/users/" + username + "/repos");
+          }}
+          className="user-button"
+        >
+          <BsSearch /> Search
+        </button>
       </div>
 
-      <hr />
-
       <div className="repositories-wrapper">
-        <h2>Repository list from user __ :</h2>
         <ul>
-          {repositories.map((repository) => {
-            return (
+          {repositories.length > 0 ? (
+            repositories.map((repository) => (
               <RepositoryItem key={repository.name} repository={repository} />
-            );
-          })}
+            ))
+          ) : (
+            <h2>{description}</h2>
+          )}
         </ul>
       </div>
     </section>
