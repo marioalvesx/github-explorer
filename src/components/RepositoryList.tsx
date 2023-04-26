@@ -19,12 +19,14 @@ export function RepositoryList() {
   const [description, setDescription] = useState("Waiting search");
 
   useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setDescription(username ? "User not found" : "Waiting search");
-        setRepositories(data);
-      });
+    if (username.length) {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          // setDescription(username ? "User not found" : "Waiting search");
+          setRepositories(data);
+        });
+    }
   }, [url]);
 
   return (
