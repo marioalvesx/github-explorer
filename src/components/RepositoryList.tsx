@@ -19,7 +19,7 @@ export function RepositoryList() {
   const [description, setDescription] = useState("Waiting search");
 
   useEffect(() => {
-    if (username.length) {
+    if(username.length) {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
