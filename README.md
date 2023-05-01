@@ -13,7 +13,9 @@
 
 - React.
 - TypeScript.
-- Sass (superset of css)
+- Sass (superset of css).
+- Babel.
+- Webpack.
 
 # :rocket: Features
 
