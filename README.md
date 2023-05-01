@@ -9,7 +9,7 @@
 
 ---
 
-# :atom: Technologies
+# :atom_symbol: Technologies
 
 - React.
 - TypeScript.
