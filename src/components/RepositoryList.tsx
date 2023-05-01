@@ -10,6 +10,10 @@ interface Repository {
   name: string;
   description: string;
   html_url: string;
+  owner: {
+    login: string;
+    avatar_url: string;
+  };
 }
 
 export function RepositoryList() {
