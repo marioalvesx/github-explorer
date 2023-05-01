@@ -80,16 +80,16 @@ section.repository-list {
       li {
         border-radius: 8px;
         padding: 15px;
-        box-shadow: 0px 0px 5px #ffffff, 0px 0px 0px #c9d1d9;
-        background-color: #ffff;
-        color: black;
+        box-shadow: 0px 0px 1px #ffffff, 0px 0px 1px #c9d1d9;
+        background-color: #161b22;
+        color: white;
         & + li {
           margin-top: 25px;
         }
 
         p {
           font-size: 14px;
-          color: #444;
+          color: #939393;
           margin-top: 8px;
         }
 
